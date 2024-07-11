@@ -65,6 +65,25 @@ img {
     color: var(--color-black);
 }
 
+.button__btn-main {
+    background: var(--color-white);
+    padding: 7px 24px;
+    border: none;
+    cursor: pointer;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration-skip-ink: none;
+    color: var(--color-black);
+    border: transparent 2px solid;
+}
+
+.button__btn-main:hover {
+    text-decoration: underline;
+}
+
 /* header */
 
 .header {
@@ -144,6 +163,7 @@ img {
     height: 100vh;
 
     background-position: center;
+    background-repeat: no-repeat;
 }
 .banner__overlay {
     background: rgba(0, 0, 0, 0.58);
@@ -188,17 +208,6 @@ img {
 .banner__category a {
     background: var(--color-white);
     padding: 10px 24px;
-    font-family: var(--second-family);
-    font-weight: 400;
-    font-size: 14px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration-skip-ink: none;
-    color: var(--color-black);
-}
-
-.banner__category a:hover {
-    text-decoration: underline;
 }
 
 /* discount cards */
@@ -217,6 +226,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 55px;
 }
 .discount__link {
     cursor: pointer;
@@ -243,14 +253,171 @@ img {
     aspect-ratio: 170/231;
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 38px;
+}
+.discount-card__image:hover .discount-card__buttons {
+    opacity: 1;
+}
+.discount-card__fav-button {
+    border-radius: 100%;
+    border: none;
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.discount-card__buttons {
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    column-gap: 16px;
 }
 
-@media screen and (max-width: 1000px) {
+.discount-card__info {
+    text-transform: uppercase;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: max-content;
+}
+
+.discount-card__title {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0.04em;
+}
+.discount-card__price {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #8c907e;
+}
+
+.show-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 55px;
+}
+
+.show-more__button {
+    padding: 12.5px 18.5px;
+    background: rgba(17, 17, 17, 0.77);
+    color: #fff;
+}
+
+/* footer */
+.footer {
+    background: #e3e3e3;
+    margin-top: 93px;
+}
+.footer__wrapper {
+    padding-block: 73px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    column-gap: 142px;
+}
+
+.footer__wrapper > * {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__title {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-black);
+
+    margin-bottom: 20px;
+    margin-top: 13px;
+}
+
+.footer__column {
+    display: flex;
+    flex-direction: column;
+}
+.footer__nav a {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-black);
+}
+.footer__nav a:hover {
+    text-decoration: underline;
+}
+
+.footer__logo h1 {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 36px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-black);
+
+    margin-bottom: 15px;
+}
+.footer__logo p {
+    font-family: var(--second-family);
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 136%;
+    letter-spacing: 0.01em;
+    color: #303030;
+
+    max-width: 340px;
+}
+
+.footer__nav .footer__column {
+    row-gap: 4px;
+}
+.footer__contact .footer__column {
+    row-gap: 14px;
+}
+
+.footer__contact p {
+    font-family: var(--second-family);
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 136%;
+    letter-spacing: 0.01em;
+    color: #303030;
+}
+.footer__contact p a {
+    font-weight: 400;
+}
+
+@media screen and (max-width: 1100px) {
     .header__wrapper {
         column-gap: 50px;
     }
     .header__navigation {
         width: auto;
+    }
+
+    .discount__cards {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        row-gap: 30px;
+    }
+    .discount-card {
+        width: calc(50% - 10px);
     }
 }
 
@@ -260,5 +427,59 @@ img {
     }
     .header__menu-icon {
         display: block;
+    }
+
+    .banner__overlay h1 {
+        font-size: 80px;
+    }
+
+    .banner__categories {
+        display: grid;
+        grid-template-columns: repeat(3, calc(50% - 10px));
+        grid-template-rows: 1fr;
+
+        overflow-x: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .banner__categories::-webkit-scrollbar
+    /*,
+     .discount__cards::-webkit-scrollbar*/ {
+        display: none;
+    }
+
+    .footer__wrapper {
+        justify-content: space-between;
+        column-gap: 30px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .footer__wrapper {
+        flex-direction: column;
+        justify-content: flex-start;
+        row-gap: 50px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .banner__overlay h1 {
+        font-size: 60px;
+    }
+
+    .banner__categories {
+        grid-template-columns: repeat(3, 100%);
+    }
+
+    .discount-card {
+        width: calc(100%);
+    }
+
+    .discount__cards {
+        overflow-x: hidden;
+    }
+    .discount__cards {
+        flex-wrap: wrap;
+        row-gap: 30px;
     }
 }
